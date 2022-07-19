@@ -77,10 +77,5 @@ x_ = [i for i in range(len(y_))]
 
 plt.plot(x_, y_, 'peru')
 plt.plot(x_, y_1, 'b-')
-<<<<<<< HEAD:transformada.py
 
 plt.show()
-=======
-plt.show()
-a = 0
->>>>>>> 18da85c9207a976a162de7de34aa206bb618c711:scripts/transformada.py
