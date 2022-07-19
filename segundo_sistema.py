@@ -27,7 +27,7 @@ q_solved = {
 def get_p_from_q(q, N):
     p = [0 for i in range(N)]
     for k in range(N):
-        p[N-1-k] = (((-1)**k)*q[k])
+        p[k] = (((-1)**(k+1))*q[N-1-k])
     # p = reversed(p)
     return p
 

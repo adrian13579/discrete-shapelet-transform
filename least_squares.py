@@ -2,6 +2,7 @@ from sympy import symbols, solve
 import sympy as sp
 import numpy as np
 from segundo_sistema import get_p_from_q
+import matplotlib.pyplot as plt
 
 # ejemplo del paper
 
@@ -95,9 +96,25 @@ sol = [0]+sol+[0]
 sol_eval = {}
 for i, ro in enumerate(Ro):
     sol_eval[ro] = sol[i]
+
 ro_2_equations, ro_2_sol_eval = Ro_2_(N, p_, Ro_2, Ro, sol)
+sol_2 = [i for i in ro_2_sol_eval.values()]
 sol_eval.update(ro_2_sol_eval)
 print(sol_eval)
+x = [i for i in range(len(sol_eval))]
+x = np.arange(0, len(sol_eval)/2, 0.5)
+y = []
+i_1 = 0
+i_2 = 0
+for i in range(len(sol_eval)):
+    if i%2 == 0:
+        y.append(sol[i_1])
+        i_1+=1
+    else:
+        y.append(sol_2[i_2])
+        i_2+=1
+plt.plot(x,y,'r-')
+plt.show()
 print('----------------------------------------')
 for eq in equations_:
     print(eq.evalf(subs=sol_eval))
