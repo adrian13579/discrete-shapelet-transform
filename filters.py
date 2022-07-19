@@ -71,8 +71,6 @@ def get_filters(m, method = 'Powell', verbose = False):
     for var, val in zip(q, q_values):
         q_dic[var] = val
     
-    p = symbols(''.join('p'+str(i) + ' ' for i in range(N)))
-    
     def get_p_from_q(q, N):
         # p = [0 for i in range(N)]
         # for k in range(N):
@@ -107,8 +105,8 @@ def get_filters(m, method = 'Powell', verbose = False):
         p_bar_dic[var] = val
         
     # getting q bar
-    def get_q_bar(q):
-        return [(((-1)**(k+1))*val) for k, val in enumerate(q)]
+    def get_q_bar(p):
+        return [(((-1)**(k+1))*val) for k, val in enumerate(p)]
 
     q_bar = symbols(''.join('q_'+str(i) + ' ' for i in range(N)))
 
