@@ -150,4 +150,4 @@ def get_filters(m, method = 'Powell', verbose = False):
         print(matching_2.evalf(subs=q_values))
         print('-----------------------------------------------------------')
     #    dec_low, dec_high, rec_low, rec_high
-    return q_dic, p_dic, q_bar_dic, p_bar_dic
+    return p_dic, q_dic, p_bar_dic, q_bar_dic

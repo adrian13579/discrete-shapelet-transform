@@ -11,16 +11,35 @@ x1 = np.arange(41, 50)
 x += [i for i in x1]
 x2 = np.arange(50, 63+1, 1)
 x += [i for i in x2]
+# x0 = np.arange(0, 21, 1)
+# x = [i for i in x0]
+# x1 = np.arange(51, 60)
+# x += [i for i in x1]
+# x2 = np.arange(60, 63+1, 1)
+# x += [i for i in x2]
+
+def signal2(x):
+    if x >= 0 and x <= 40:
+        return math.cos((math.pi *27*x)/8)*math.sin((math.pi *75*x)/8)
+    elif x >= 41 and x <= 49:
+        return m[int(x)%8]
+    # elif x >= 29 and x <= 50:
+    #     return math.cos((math.pi *27*x)/8)*math.sin((math.pi *75*x)/8)
+    else: # 50 <= x <= 63
+        return math.cos((math.pi *295*x)/32)*math.sin((math.pi *105*x)/32)
 
 def signal(x):
     if x >= 0 and x <= 40:
         return math.cos((math.pi *27*x)/8)*math.sin((math.pi *75*x)/8)
     elif x >= 41 and x <= 49:
-        return m[int(x)%8]
+        return m[int(x)-41]
+    # elif x >= 29 and x <= 50:
+    #     return math.cos((math.pi *27*x)/8)*math.sin((math.pi *75*x)/8)
     else: # 50 <= x <= 63
         return math.cos((math.pi *295*x)/32)*math.sin((math.pi *105*x)/32)
 
 y = [signal(i) for i in x]
+y__ = [signal2(i) for i in x]
 y0 = [signal(i) for i in x0]
 # x0_y0_spline = make_interp_spline(x0, y0)
 # x0_ = np.linspace(x0[0], x0[-1], 1000)
@@ -34,4 +53,5 @@ print(signal(15))
 # plt.plot(x1, y1, 'r-')
 # plt.plot(x2, y2, 'b-')
 # plt.plot(x, y, 'r-')
+# plt.plot(x, y__, 'b-')
 # plt.show()
