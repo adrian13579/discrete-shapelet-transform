@@ -38,11 +38,11 @@ def get_filters(m, method="Powell", verbose=False):
     def matching_conditions(m, N, q):
         matching_1 = 0
         for k in range(N):
-            matching_1 += q[k] * m[k][1]
+            matching_1 += q[k] * m[k]
 
         matching_2 = 0
         for k in range(N):
-            matching_2 += q[k] * m[k + 1][1]
+            matching_2 += q[k] * m[k + 1]
 
         return matching_1, matching_2
 
@@ -141,8 +141,8 @@ def get_filters(m, method="Powell", verbose=False):
         print(matching_2.evalf(subs=q_values))
         print("-----------------------------------------------------------")
     return (
-        q_dic,  # dec_low
-        p_dic,  # dec_high
-        q_bar_dic,  # rec_low
-        p_bar_dic,  # rec_high
+        p_dic,  # dec_low
+        q_dic,  # dec_high
+        p_bar_dic,  # rec_low
+        q_bar_dic,  # rec_high
     )
