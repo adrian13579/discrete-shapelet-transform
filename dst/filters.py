@@ -64,8 +64,10 @@ def get_filters(m, method="Powell", verbose=False):
     # The method to solve the non-linear system
     if method == "Powell":
         q_values = fsolve(fun, [0 for _ in range(N)])
-    elif "Newton":
+    elif method == "Newton":
         q_values = newton(fun, [0 for _ in range(N)])
+    else:
+        q_values = fsolve(fun, [0 for _ in range(N)])
     # TODO: Gradient Descent and Homotopy
     ###########################################
 
@@ -140,9 +142,6 @@ def get_filters(m, method="Powell", verbose=False):
         print("                                                           ")
         print(matching_2.evalf(subs=q_values))
         print("-----------------------------------------------------------")
-    return (
-        p_dic,  # dec_low
-        q_dic,  # dec_high
-        p_bar_dic,  # rec_low
-        q_bar_dic,  # rec_high
-    )
+    # return q_dic, p_dic, q_bar_dic, p_bar_dic, 
+    return p_dic, q_dic, p_bar_dic, q_bar_dic, 
+    
