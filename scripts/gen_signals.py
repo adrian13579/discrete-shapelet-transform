@@ -48,15 +48,20 @@ def example_4(x):
     else: # 50 <= x <= 63
         return cos((pi *30*x)/32)*sin((pi *15*x)/32)
 
+def example_5(x):
+    if x >= 0 and x <= 89:
+        return cos((pi *27*x)/8)*sin((pi *75*x)/8)
+    else: # 50 <= x <= 63
+        return cos((pi *295*x)/32)*sin((pi *105*x)/32)
 
-m = [0.20, 0.50, 0.45, 0.85, 0.80, -0.75, 0.25, 0.20, 0.55]
-x = [i for i in range(64)]
-func = example_4
-# y1 = [patch_signal_by_steps(i, m, func, 41, 49) for i in range(64)]
-y = patch_signal_full(x, m, func, 41, 49)
+# m = [0.20, 0.50, 0.45, 0.85, 0.80, -0.75, 0.25, 0.20, 0.55]
+# x = [i for i in range(64)]
+# func = example_4
+# # y1 = [patch_signal_by_steps(i, m, func, 41, 49) for i in range(64)]
+# y = patch_signal_full(x, m, func, 41, 49)
 
 
-# plt.plot(x, y1, 'b-')
-plt.plot(x, y, 'r-')
-plt.show()
-a = 0
+# # plt.plot(x, y1, 'b-')
+# plt.plot(x, y, 'r-')
+# plt.show()
+# a = 0
