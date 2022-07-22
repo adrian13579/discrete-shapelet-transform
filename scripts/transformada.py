@@ -36,7 +36,7 @@ plt.show()
 # db1 = pywt.Wavelet(name = 'db1')
 # (cA, cD) = pywt.dwt(y, 'db1')
 # (cA1, cD1) = pywt.dwt(y, myWavelet)
-(cA, cD) = pywt.dwt(y, myWavelet)
+(cA, cD) = pywt.dwt(y, myWavelet, mode='periodization')
 # cA = pywt.downcoef('a', y, myWavelet)
 
 y_ = np.concatenate([cA, cD])
